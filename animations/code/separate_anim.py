@@ -8,7 +8,8 @@ import numpy as np
 
 class AnimSeparate:
 
-    def __init__(self, width_s, height_s):
+    def __init__(self, width_s, height_s, frames=60):
+        self.frames = frames
 
         self.mid_p = (width_s*0.5, height_s*0.5)
         cp = ColorPicker()
@@ -25,9 +26,6 @@ class AnimSeparate:
         push()
 
         lerp_factor = lerp(0, 1, np.sin(self.time*np.pi)**2)
-
-        print(lerp_factor)
-
 
         r1_area = 255 * (lerp_factor * self.pal["highlight-area"]._red + (1 - lerp_factor) * self.pal["basic-area"]._red)
         g1_area = 255 * (lerp_factor * self.pal["highlight-area"]._green + (1 - lerp_factor) * self.pal["basic-area"]._green)

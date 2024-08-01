@@ -1,6 +1,12 @@
 from circle_anim import AnimCircle
 from contrast_anim import AnimContrast
 from separate_anim import AnimSeparate
+from earth_anim import AnimEarth
+from hunter_anim import AnimHunter
+from ballistic_anim import AnimBallistic
+from wave_anim import AnimWave
+from pendulum_anim import AnimPendulum
+from heat_anim import AnimHeat
 from p5 import *
 import os
 import sys
@@ -30,7 +36,7 @@ def draw():
         str_name = f"frames/{frame_nr:03}.png"
         p5.renderer.save_canvas(str_name, p5.renderer)
     frame_nr += 1
-    if frame_nr >= 60:
+    if frame_nr >= animator.frames:
         gen_gif(animations[animation_index])
         reset_setup()
 
@@ -52,7 +58,7 @@ def gen_gif(name):
 
 def setup_recordings():
     if os.path.isdir("frames"):
-        os.system("rm -r frames")
+        os.system("rmdir frames /S /Q")
     os.system("mkdir frames")
 
 
@@ -72,9 +78,28 @@ def set_animation(anim_name):
     if anim_name == "VLT_separate":
         animator = AnimSeparate(WIDTH_start, HEIGHT_start)
 
+    if anim_name == "PRJ_earth":
+        animator = AnimEarth(WIDTH_start, HEIGHT_start)
+
+    if anim_name == "PRJ_hunter":
+        animator = AnimHunter(WIDTH_start, HEIGHT_start)
+
+    if anim_name == "PRJ_ballistic":
+        animator = AnimBallistic(WIDTH_start, HEIGHT_start)
+
+    if anim_name == "PRJ_wave":
+        animator = AnimWave(WIDTH_start, HEIGHT_start)
+
+    if anim_name == "PRJ_pendulum":
+        animator = AnimPendulum(WIDTH_start, HEIGHT_start)
+
+    if anim_name == "PRJ_heat":
+        animator = AnimHeat(WIDTH_start, HEIGHT_start)
+
+
 
 if __name__ == "__main__":
-    #animations = ["VLT_circle", "VLT_contrast", "VLT_separate"]
-    animations = ["VLT_separate"]
+    #animations = ["VLT_circle", "VLT_contrast", "VLT_separate", "PRJ_earth", "PRJ_hunter", "PRJ_ballistic", "PRJ_wave", "PRJ_pendulum"", "PRJ_heat"]
+    animations = ["PRJ_heat"]
     obj = run(renderer="skia")
 

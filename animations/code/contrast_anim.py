@@ -8,7 +8,8 @@ import numpy as np
 
 class AnimContrast:
 
-    def __init__(self, width_s, height_s):
+    def __init__(self, width_s, height_s, frames=60):
+        self.frames = frames
 
         self.mid_p = (width_s*0.5, height_s*0.5)
         cp = ColorPicker()
