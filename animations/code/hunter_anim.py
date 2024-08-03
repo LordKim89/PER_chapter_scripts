@@ -8,8 +8,9 @@ class AnimHunter:
 
     
 
-    def __init__(self, wi, he, frames=68):
+    def __init__(self, wi, he, frames=68, save_frame=67):
         self.frames = frames
+        self.save_frame = save_frame
         self.w = wi
         self.h = he
         cp = ColorPicker()

@@ -8,8 +8,9 @@ import numpy as np
 
 class AnimSeparate:
 
-    def __init__(self, width_s, height_s, frames=60):
+    def __init__(self, width_s, height_s, frames=60, save_frame=0):
         self.frames = frames
+        self.save_frame = save_frame
 
         self.mid_p = (width_s*0.5, height_s*0.5)
         cp = ColorPicker()

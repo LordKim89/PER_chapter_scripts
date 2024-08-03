@@ -5,9 +5,9 @@ from colors import ColorPicker
 import copy
 
 class AnimHeat:
-    def __init__(self, wi, he, frames=120):
+    def __init__(self, wi, he, frames=120, save_frame=40):
         self.frames = frames
-        self.save_frame = 150
+        self.save_frame = save_frame
         self.w = wi
         self.h = he
         self.time = 0
@@ -61,7 +61,7 @@ class AnimHeat:
 
             dt = 1/60
             for x in range(self.p_w):
-                for y in range(self.p_w):
+                for y in range(self.p_h):
                     self.particles[x][y].temperature += self.particles[x][y].dT * dt
                     self.particles[x][y].dT = 0
 

@@ -7,6 +7,8 @@ from ballistic_anim import AnimBallistic
 from wave_anim import AnimWave
 from pendulum_anim import AnimPendulum
 from heat_anim import AnimHeat
+from cloth_anim import AnimCloth
+from solid_anim import AnimSolid
 from p5 import *
 import os
 import sys
@@ -52,9 +54,13 @@ def reset_setup():
 
 def gen_gif(name):
     os.system("echo Generating gif")
+    mp4_command = "echo y | ffmpeg -framerate 24 -i frames\%03d.png -filter_complex  \"[0]split[a][b]; [a]palettegen[palette]; [b][palette]paletteuse\" " + name + ".mp4"
+    os.system(mp4_command)
     gif_command = "echo y | ffmpeg -framerate 24 -i frames\%03d.png -filter_complex  \"[0]split[a][b]; [a]palettegen[palette]; [b][palette]paletteuse\" " + name + ".gif"
     os.system(gif_command)
-    os.system("echo Y | copy frames\\024.png "+name+"_stationary.png")
+    frame_str = f"frames\\{animator.save_frame:03d}.png"
+    print("echo Y | copy " + frame_str + " "+name+"_stationary.png")
+    os.system("echo Y | copy " + frame_str + " "+name+"_stationary.png")
 
 def setup_recordings():
     if os.path.isdir("frames"):
@@ -96,10 +102,28 @@ def set_animation(anim_name):
     if anim_name == "PRJ_heat":
         animator = AnimHeat(WIDTH_start, HEIGHT_start)
 
+    if anim_name == "PRJ_cloth":
+        animator = AnimCloth(WIDTH_start, HEIGHT_start)
+
+    if anim_name == "PRJ_solid":
+        animator = AnimSolid(WIDTH_start, HEIGHT_start)
+
 
 
 if __name__ == "__main__":
-    #animations = ["VLT_circle", "VLT_contrast", "VLT_separate", "PRJ_earth", "PRJ_hunter", "PRJ_ballistic", "PRJ_wave", "PRJ_pendulum"", "PRJ_heat"]
-    animations = ["PRJ_heat"]
+    #"""
+    animations = ["VLT_circle", 
+                "VLT_contrast", 
+                "VLT_separate", 
+                "PRJ_earth", 
+                "PRJ_hunter", 
+                "PRJ_ballistic", 
+                "PRJ_wave", 
+                "PRJ_pendulum", 
+                "PRJ_heat",
+                "PRJ_cloth",
+                "PRJ_solid"]
+    #"""
+    animations = ["PRJ_earth"]
     obj = run(renderer="skia")
 

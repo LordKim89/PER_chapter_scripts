@@ -8,8 +8,9 @@ import numpy as np
 
 class AnimCircle:
 
-    def __init__(self, width_s, height_s, frames=60):
+    def __init__(self, width_s, height_s, frames=60, save_frame=30):
         self.frames = frames
+        self.save_frame = save_frame
         self.r1 = width_s * 0.5 * 0.6
         self.r2 = height_s * 0.5 * 0.9
         self.mid_p = (width_s*0.5, height_s*0.5)

@@ -5,9 +5,9 @@ from colors import ColorPicker
 import copy
 
 class AnimPendulum:
-    def __init__(self, wi, he, frames=500):
+    def __init__(self, wi, he, frames=500, save_frame=200):
         self.frames = frames
-        self.save_frame = 150
+        self.save_frame = save_frame
         self.w = wi
         self.h = he
         self.time = 0
