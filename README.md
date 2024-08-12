@@ -5,4 +5,4 @@ numpy
 p5
 
 run with:
-python gen_anim.py
+python gen_animations.py
