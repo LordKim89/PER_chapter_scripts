@@ -1,20 +1,20 @@
 import numpy as np
 from p5 import *
-from particle import Particle
-from colors import ColorPicker
+from .particle import Particle
+from .colors import ColorPicker
 import copy
 
 class AnimHunter:
 
     
 
-    def __init__(self, wi, he, frames=68, save_frame=67):
+    def __init__(self, wi, he, frames=68, save_frame=67, palette="GrayRedGreen"):
         self.frames = frames
         self.save_frame = save_frame
         self.w = wi
         self.h = he
         cp = ColorPicker()
-        self.pal = cp.get_palette("GrayRedGreen")
+        self.pal = cp.get_palette(palette)
         m_pos = np.array([self.w*0.9, self.h*0.1])
         self.monkey = Particle(init_pos=m_pos)
         b_pos = np.array([self.w*0.1, self.h*0.9])

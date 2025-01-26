@@ -1,18 +1,18 @@
 import numpy as np
 from p5 import *
-from particle import Particle
-from colors import ColorPicker
+from .particle import Particle
+from .colors import ColorPicker
 import copy
 
 class AnimSolid:
-    def __init__(self, wi, he, frames=200):
+    def __init__(self, wi, he, frames=200, palette="GrayRedGreen"):
         self.frames = frames
         self.save_frame = 150
         self.w = wi
         self.h = he
         self.time = 0
         cp = ColorPicker()
-        self.pal = cp.get_palette("GrayRedGreen")
+        self.pal = cp.get_palette(palette)
         
         self.dl = self.w * 0.8/(40 - 1)
 

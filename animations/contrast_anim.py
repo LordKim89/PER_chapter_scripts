@@ -1,5 +1,5 @@
 from p5 import *
-from colors import ColorPicker
+from .colors import ColorPicker
 import time
 import numpy as np
 
@@ -8,13 +8,13 @@ import numpy as np
 
 class AnimContrast:
 
-    def __init__(self, width_s, height_s, frames=60, save_frame=30):
+    def __init__(self, width_s, height_s, frames=60, save_frame=30, palette="GrayRedGreen"):
         self.frames = frames
         self.save_frame = save_frame
 
         self.mid_p = (width_s*0.5, height_s*0.5)
         cp = ColorPicker()
-        self.pal = cp.get_palette("GrayRedGreen")
+        self.pal = cp.get_palette(palette)
         self.time = 0
 
     

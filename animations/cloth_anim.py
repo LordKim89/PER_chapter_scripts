@@ -1,18 +1,18 @@
 import numpy as np
 from p5 import *
-from particle import Particle
-from colors import ColorPicker
+from .particle import Particle
+from .colors import ColorPicker
 import copy
 
 class AnimCloth:
-    def __init__(self, wi, he, frames=150, save_frame=145):
+    def __init__(self, wi, he, frames=150, save_frame=145, palette="GrayRedGreen"):
         self.frames = frames
         self.save_frame = save_frame
         self.w = wi
         self.h = he
         self.time = 0
         cp = ColorPicker()
-        self.pal = cp.get_palette("GrayRedGreen")
+        self.pal = cp.get_palette(palette)
         
         self.p_w = 20
         self.p_h = 30

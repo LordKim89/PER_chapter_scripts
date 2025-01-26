@@ -1,18 +1,18 @@
 import numpy as np
 from p5 import *
-from particle import Particle
-from colors import ColorPicker
+from .particle import Particle
+from .colors import ColorPicker
 import copy
 
 class AnimPendulum:
-    def __init__(self, wi, he, frames=500, save_frame=200):
+    def __init__(self, wi, he, frames=500, save_frame=200, palette="GrayRedGreen"):
         self.frames = frames
         self.save_frame = save_frame
         self.w = wi
         self.h = he
         self.time = 0
         cp = ColorPicker()
-        self.pal = cp.get_palette("GrayRedGreen")
+        self.pal = cp.get_palette(palette)
         
         self.center = Particle()
         self.joint_length_1 = self.w/4

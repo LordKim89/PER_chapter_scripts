@@ -1,20 +1,20 @@
 import numpy as np
 from p5 import *
-from particle import Particle
-from colors import ColorPicker
+from .particle import Particle
+from .colors import ColorPicker
 import copy
 
 class AnimEarth:
 
     
 
-    def __init__(self, wi, he, frames=366, save_frame=250):
+    def __init__(self, wi, he, frames=366, save_frame=250, palette="GrayRedGreen"):
         self.frames = frames
         self.save_frame = save_frame
         self.w = wi
         self.h = he
         cp = ColorPicker()
-        self.pal = cp.get_palette("GrayRedGreen")
+        self.pal = cp.get_palette(palette)
 
         self.sun = Particle(mass=1.989e30)
         self.earth = Particle(init_pos=np.array([150e9, 0], dtype=np.float64), init_vel=np.array([0, 29784.8], dtype=np.float64), mass=5.9721e24)
