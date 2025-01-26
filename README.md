@@ -1,15 +1,21 @@
 To install (windows):
 
 python -m venv venv
+
 .\venv\Scripts\activate
+
 pip install -r requirements.txt
 
 To install (linux):
+
 python -m venv venv
+
 source venv\bin\activate
+
 pip install -r requirements.txt
 
 run with:
+
 python gen_animations.py
 
 ## Animations for PER chapter
