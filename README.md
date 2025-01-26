@@ -1,4 +1,4 @@
-To install (windows):
+### To install (windows):
 
 python -m venv venv
 
@@ -6,7 +6,7 @@ python -m venv venv
 
 pip install -r requirements.txt
 
-To install (linux):
+### To install (linux):
 
 python -m venv venv
 
@@ -14,7 +14,7 @@ source venv\bin\activate
 
 pip install -r requirements.txt
 
-run with:
+### Running the code
 
 python gen_animations.py
 
